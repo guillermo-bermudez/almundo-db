@@ -2,10 +2,10 @@
 
 const setupDB = require('./lib/db')
 const setupHotelModel = require('./models/hotel')
+const setupHotel = require('./lib/hotel')
 const defaults = require('defaults')
 
 module.exports = async function (config) {
-
   config = defaults(config, {
     dialect: 'sqlite',
     pool: {
@@ -21,13 +21,11 @@ module.exports = async function (config) {
   const sequelize = setupDB(config)
   const HotelModel = setupHotelModel(config)
 
-  //HotelModel.belongsTo()
-
   await sequelize.authenticate()
 
   if (config.setup) { await sequelize.sync({ force: true }) }
 
-  const Hotel = {}
+  const Hotel = setupHotel(HotelModel)
 
   return {
     Hotel

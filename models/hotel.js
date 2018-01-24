@@ -9,7 +9,7 @@ module.exports = function setupHotelModel (config) {
   return sequelize.define('hotels', {
     id: {
       primaryKey: true,
-      type: Sequelize.BIGINT,
+      type: Sequelize.INTEGER,
       allowNull: false
     },
     name: {
@@ -29,7 +29,7 @@ module.exports = function setupHotelModel (config) {
       allowNull: false
     },
     amenities: {
-      type: Sequelize.TEXT,
+      type: Sequelize.JSON,
       allowNull: false
     }
   })

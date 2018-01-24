@@ -1,21 +1,20 @@
 {
-  "name": "api_rest",
+  "name": "api_db",
   "version": "1.0.0",
-  "description": "almundo hotels api_rest",
+  "private": true,
+  "description": "almundo hotels api_db",
   "main": "index.js",
   "scripts": {
     "lint": "standard",
-    "setup": "SET DEBUG=api_rest* && node setup.js",
-    "test": "SET DEBUG=api_rest* && nyc --reporter=lcov ava tests/ --verbose"
+    "setup": "SET DEBUG=api_db:* && node setup.js",
+    "test": "SET DEBUG=api_db:* && nyc --reporter=lcov ava tests/ --verbose"
   },
   "author": "Felipe Bermudez",
   "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.18.2",
     "chalk": "^2.3.0",
     "debug": "^3.1.0",
     "defaults": "^1.0.3",
-    "express": "^4.16.2",
     "inquirer": "^5.0.1",
     "npm": "^5.6.0",
     "pg": "^7.4.1",
